@@ -1,5 +1,9 @@
+import MovieSection from "../components/MovieSection.jsx";
+
 const HomePage = () => {
-    return <h1 className="text-3xl">Hello from Home</h1>
+    return <div>
+        <MovieSection icon={"📅"} name={"Upcomming movies"}/>
+    </div>
 }
 
 export default HomePage;

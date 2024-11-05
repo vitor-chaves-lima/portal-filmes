@@ -14,7 +14,9 @@ const NavBar = () => {
    return <div className="border-b border-b-slate-600">
          <Container>
             <div className="flex gap-36 items-center h-16">
-               <h1 className="text-xl text-white">Movies portal</h1>
+               <NavLink to="/">
+                  <h1 className="text-xl text-white">Movies portal</h1>
+               </NavLink>
 
                <nav className="h-full flex items-center">
                   <ul className="flex gap-12 h-full">
