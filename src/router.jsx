@@ -3,6 +3,7 @@ import MainLayout from "./layouts/Main.layout.jsx";
 import HomePage from "./pages/Home.page.jsx";
 import ExplorePage from "./pages/Explore.page.jsx";
 import MyListsPage from "./pages/MyLists.page.jsx";
+import homePageLoader from "./loaders/movie.loaders.js";
 
 const router = createBrowserRouter([
     {
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <HomePage/>
+                element: <HomePage/>,
+                loader: homePageLoader
             },
             {
                 path: "explore",
