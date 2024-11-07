@@ -1,14 +1,14 @@
 import {Suspense, useState} from "react";
-import {Await} from "react-router-dom";
+import {Await, Link} from "react-router-dom";
 import {buildImageURL} from "../utils/moviedb.js";
 
-const MovieCard = ({ poster_path, title, vote_average, vote_count}) => {
+const MovieCard = ({ id, poster_path, title, vote_average, vote_count}) => {
     return (
-        <div className="px-4">
+        <Link to={`/explore/movies/${id}`} className={"group"}>
             <img
                 src={buildImageURL(poster_path)}
                 alt={`${title}'s poster`}
-                className="rounded-lg w-full object-cover"
+                className="rounded-lg w-full object-cover transform transition-transform duration-300 group-hover:scale-105"
             />
             <div className="mt-4 text-white">
                 <div className="flex text-sm mb-1 gap-2">
@@ -20,7 +20,7 @@ const MovieCard = ({ poster_path, title, vote_average, vote_count}) => {
                 </div>
                 <h2 className="text-lg font-bold">{title}</h2>
             </div>
-        </div>
+        </Link>
     );
 };
 
@@ -34,7 +34,7 @@ const MovieSectionLoading = ({icon, name}) => {
                 </div>
             </div>
 
-            <div className="overflow-hidden">
+            <div className="flex items-center justify-center text-white">
                 Loading...
             </div>
         </section>
@@ -88,7 +88,7 @@ const MovieSectionContent = ({icon, name, data}) => {
             </div>
 
             <div className="overflow-hidden">
-                <div className="flex transition-transform duration-300"
+                <div className="flex transition-transform duration-300 gap-8 py-5 px-2"
                      style={{ transform: `translateX(-${currentIndex * (100 / itemsVisible)}%)` }}
                 >
                     {visibleMovies.map((movie, index) => (
@@ -101,7 +101,6 @@ const MovieSectionContent = ({icon, name, data}) => {
 }
 
 const MovieSection = ({ icon, name, data }) => {
-
     return (
         <section className="flex flex-col py-7 gap-7">
             <Suspense
