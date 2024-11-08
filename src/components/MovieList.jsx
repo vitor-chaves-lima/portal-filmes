@@ -1,10 +1,12 @@
 import MovieCard from './MovieCard';
 
-const MoviesListPaginationComponent = ({currentPage, handleClick}) => {
+const MoviesListPaginationComponent = ({currentPage, maxPages, handleClick}) => {
+    const usedMaxPages = maxPages > 500 ? 500 : maxPages;
+
     const getPageNumbers = () => {
         const pages = [];
         const startPage = currentPage <= 3 ? 1 : currentPage - 3;
-        const endPage = currentPage < 4 ? 8 : (currentPage + 4 > 500 ? 500 : currentPage + 4);
+        const endPage = currentPage < 4 ? 8 : (currentPage + 4 > usedMaxPages ? usedMaxPages : currentPage + 4);
 
         for (let i = startPage; i <= endPage; i++) {
             pages.push(i);
@@ -27,7 +29,7 @@ const MoviesListPaginationComponent = ({currentPage, handleClick}) => {
                     {page}
                 </button>
             ))}
-            <button onClick={() => handleClick(500)} disabled={currentPage === 500} className={'disabled:text-slate-600 disabled:cursor-not-allowed text-white'}>
+            <button onClick={() => handleClick(usedMaxPages)} disabled={currentPage === usedMaxPages} className={'disabled:text-slate-600 disabled:cursor-not-allowed text-white'}>
                 Last
             </button>
         </div>
