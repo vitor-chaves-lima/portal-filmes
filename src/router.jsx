@@ -4,6 +4,7 @@ import HomePage from "./pages/Home.page.jsx";
 import ExplorePage from "./pages/Explore.page.jsx";
 import MyListsPage from "./pages/MyLists.page.jsx";
 import homePageLoader from "./loaders/movie.loaders.js";
+import genreLoader from "./loaders/genre.loaders.js";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
             {
                 path: "explore",
                 element: <ExplorePage/>,
+                loader: genreLoader
             },
             {
                 path: "lists",
