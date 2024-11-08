@@ -8,7 +8,7 @@ const GenreLink = ({id, name}) => {
 }
 
 const ExplorePageLoading = () => {
-    return <h2>Loading...</h2>
+    return <h2 className={"text-white"}>Loading...</h2>
 }
 
 const ExplorePage = () => {

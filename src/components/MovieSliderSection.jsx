@@ -77,7 +77,7 @@ const MovieSectionContent = ({icon, name, data}) => {
     )
 }
 
-const MovieSection = ({icon, name, data}) => {
+const MovieSliderSection = ({icon, name, data}) => {
     return (
         <section className="py-7">
             <Suspense fallback={<MovieSectionLoading icon={icon} name={name}/>}>
@@ -89,4 +89,4 @@ const MovieSection = ({icon, name, data}) => {
     );
 };
 
-export default MovieSection;
+export default MovieSliderSection;
