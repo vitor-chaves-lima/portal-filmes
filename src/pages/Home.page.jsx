@@ -2,10 +2,12 @@ import MovieSection from "../components/MovieSection.jsx";
 import {useLoaderData} from "react-router-dom";
 
 const HomePage = () => {
-    const {upcomingMovies} = useLoaderData()
+    const {popularMovies, upcomingMovies, topRatedMovies} = useLoaderData()
 
-    return <div>
+    return <div className={"flex flex-col"}>
+        <MovieSection icon={"🎬"} name={"Popular movies"} data={popularMovies}/>
         <MovieSection icon={"📅"} name={"Upcomming movies"} data={upcomingMovies}/>
+        <MovieSection icon={"🏆"} name={"Top rated"} data={topRatedMovies}/>
     </div>
 }
 
